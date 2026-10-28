@@ -1,0 +1,102 @@
+{
+  "south": {
+    "label": "South",
+    "webhook_secret": "DISCORD_WEBHOOK_URL",
+    "stores": {
+      "1484": "Lakeville",
+      "643": "Apple Valley (Cedar Ave)",
+      "2390": "Apple Valley South (Pilot Knob)",
+      "2340": "Burnsville",
+      "1833": "Savage",
+      "360": "Eagan",
+      "1211": "Northfield"
+    }
+  },
+  "southwest": {
+    "label": "Southwest",
+    "webhook_secret": "WEBHOOK_SOUTHWEST",
+    "stores": {
+      "1272": "Shakopee",
+      "220": "Eden Prairie",
+      "862": "Chanhassen",
+      "1352": "Chaska",
+      "1356": "Minnetonka",
+      "100": "Ridgedale",
+      "2449": "Waconia"
+    }
+  },
+  "inner-ring": {
+    "label": "Inner Ring",
+    "webhook_secret": "WEBHOOK_INNER_RING",
+    "stores": {
+      "5": "Bloomington (79th & Penn)",
+      "2300": "Richfield",
+      "2313": "Edina (York Ave)",
+      "260": "St. Louis Park (Hwy 100)",
+      "2189": "Knollwood (Hwy 7)"
+    }
+  },
+  "minneapolis": {
+    "label": "Minneapolis",
+    "webhook_secret": "WEBHOOK_MINNEAPOLIS",
+    "stores": {
+      "52": "East Lake St & Hwy 55",
+      "1375": "Nicollet Mall",
+      "3200": "Dinkytown",
+      "1095": "Minneapolis NE"
+    }
+  },
+  "st-paul": {
+    "label": "St. Paul",
+    "webhook_secret": "WEBHOOK_ST_PAUL",
+    "stores": {
+      "2519": "Inver Grove Heights",
+      "2046": "West St Paul",
+      "3204": "St. Paul Highland Park",
+      "2229": "St. Paul Midway",
+      "68": "East St Paul",
+      "2101": "Roseville"
+    }
+  },
+  "east": {
+    "label": "East",
+    "webhook_secret": "WEBHOOK_EAST",
+    "stores": {
+      "662": "Cottage Grove",
+      "694": "Woodbury Valley Creek",
+      "2406": "Woodbury Commerce Dr",
+      "2135": "Oakdale",
+      "1185": "North St Paul",
+      "931": "Stillwater",
+      "1235": "Hudson, WI",
+      "1522": "Red Wing"
+    }
+  },
+  "north": {
+    "label": "North",
+    "webhook_secret": "WEBHOOK_NORTH",
+    "stores": {
+      "2200": "Fridley",
+      "619": "Shoreview",
+      "751": "Vadnais Heights",
+      "1448": "Lino Lakes",
+      "820": "Northtown",
+      "1144": "Coon Rapids",
+      "1832": "Blaine",
+      "2025": "Andover"
+    }
+  },
+  "northwest": {
+    "label": "Northwest",
+    "webhook_secret": "WEBHOOK_NORTHWEST",
+    "stores": {
+      "664": "Plymouth",
+      "3": "Crystal",
+      "693": "Brooklyn Park",
+      "2223": "Medina",
+      "2193": "Maple Grove North",
+      "1831": "Champlin",
+      "1456": "Rogers"
+    }
+  }
+}

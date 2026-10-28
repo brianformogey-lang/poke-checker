@@ -2,16 +2,16 @@ name: Target Pokemon stock check
 
 on:
   schedule:
-    - cron: "*/5 * * * *"   # every 5 minutes (GitHub's minimum; runs can be delayed at busy times)
+    - cron: "*/5 * * * *"   # every 5 minutes (GitHub often runs it later than this when busy)
   workflow_dispatch:
     inputs:
       test_alert:
-        description: "Send a test message to Discord instead of checking stock"
+        description: "Send a test message to each territory's Discord channel instead of checking stock"
         type: boolean
         default: false
 
 permissions:
-  contents: write   # lets the run save state.json so you don't get repeat alerts
+  contents: write   # lets the run save state/ and reports/ so you don't get repeat alerts
 
 concurrency:
   group: stock-check
@@ -19,8 +19,21 @@ concurrency:
 
 jobs:
   check:
+    name: ${{ matrix.label }}
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 8
+    strategy:
+      fail-fast: false        # one territory being blocked doesn't stop the others
+      matrix:
+        include:
+          - { territory: south,       label: South,       secret: DISCORD_WEBHOOK_URL }
+          - { territory: southwest,   label: Southwest,   secret: WEBHOOK_SOUTHWEST }
+          - { territory: inner-ring,  label: Inner Ring,  secret: WEBHOOK_INNER_RING }
+          - { territory: minneapolis, label: Minneapolis, secret: WEBHOOK_MINNEAPOLIS }
+          - { territory: st-paul,     label: St. Paul,    secret: WEBHOOK_ST_PAUL }
+          - { territory: east,        label: East,        secret: WEBHOOK_EAST }
+          - { territory: north,       label: North,       secret: WEBHOOK_NORTH }
+          - { territory: northwest,   label: Northwest,   secret: WEBHOOK_NORTHWEST }
     steps:
       - uses: actions/checkout@v4
 
@@ -32,13 +45,41 @@ jobs:
 
       - name: Check stock
         env:
-          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL: ${{ secrets[matrix.secret] }}
           TEST_ALERT: ${{ inputs.test_alert }}
-        run: python check_stock.py
+        run: python check_stock.py --territory ${{ matrix.territory }}
+
+      - name: Hand results to the save step
+        if: ${{ always() && inputs.test_alert != true }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: results-${{ matrix.territory }}
+          path: |
+            state/${{ matrix.territory }}.json
+            reports/${{ matrix.territory }}.json
+          if-no-files-found: ignore
+          retention-days: 1
+
+  save:
+    needs: check
+    if: ${{ always() && inputs.test_alert != true }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: results-*
+          merge-multiple: true
+          path: .
 
       - name: Save state
         run: |
           git config user.name "stock-checker"
           git config user.email "stock-checker@users.noreply.github.com"
-          git add state.json last_run.json 2>/dev/null || true
-          git diff --cached --quiet || (git commit -m "Update stock state" && git push)
+          git add state reports 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Update stock state"
+          for i in 1 2 3; do git push && exit 0; git pull --rebase; done
+          exit 1

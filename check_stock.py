@@ -4,7 +4,9 @@ Target Pokemon TCG stock checker.
 Checks store-level inventory for a list of Target products at a list of stores,
 and posts to a Discord channel when something comes into stock (and when it sells out).
 
-Runs on a schedule via GitHub Actions. Needs one secret: DISCORD_WEBHOOK_URL.
+Runs on a schedule via GitHub Actions, one job per territory (see territories.json):
+    python check_stock.py --territory south
+Each territory posts to its own Discord channel via the webhook passed in DISCORD_WEBHOOK_URL.
 """
 
 import json
@@ -28,35 +30,20 @@ PRODUCTS = {
     "94411686": "Charizard ex Special Collection",
 }
 
-STORES = {
-    "2340": "Burnsville",
-    "360": "Eagan",
-    "1484": "Lakeville",
-    "643": "Apple Valley (Cedar Ave)",
-    "2390": "Apple Valley South (Pilot Knob)",
-    "1833": "Savage",
-    "5": "Bloomington (79th & Penn)",
-    "220": "Eden Prairie",
-    "1456": "Rogers",
-    "1272": "Shakopee",
-    "1211": "Northfield",
-    "2313": "Edina (York Ave)",
-    "2519": "Inver Grove Heights",
-    "2300": "Richfield",
-    "3204": "St. Paul Highland Park",
-    "862": "Chanhassen",
-    "2046": "West St Paul",
-    "1352": "Chaska",
-    "260": "St. Louis Park (Hwy 100)",
-    "662": "Cottage Grove",
-    "2189": "Knollwood (Hwy 7)",
-}
+# Stores live in territories.json, grouped by territory. Each territory has its own
+# Discord channel (webhook secret) and its own state file under state/.
+BASE_DIR = Path(__file__).parent
+TERRITORIES = json.loads((BASE_DIR / "territories.json").read_text())
+
+# Set in main() from the --territory argument
+TERRITORY = None
+STORES = {}
 
 ZIP = "55337"
 STATE = "MN"
 SECONDS_BETWEEN_STORES = 8  # Target throttles rapid-fire requests; keep this >= 8
-STATE_FILE = Path(__file__).with_name("state.json")
-REPORT_FILE = Path(__file__).with_name("last_run.json")  # what happened on the latest run
+STATE_FILE = None   # state/<territory>.json   - what was in stock last run
+REPORT_FILE = None  # reports/<territory>.json - what happened on the latest run
 
 MAX_CONSECUTIVE_FAILURES = 3  # this many stores in a row fail -> Target is throttling; stop the run
 
@@ -166,23 +153,41 @@ def product_link(tcin):
     return f"https://www.target.com/p/-/A-{tcin}"
 
 
+def setup_territory(name):
+    global TERRITORY, STORES, STATE_FILE, REPORT_FILE
+    if name not in TERRITORIES:
+        sys.exit(f"Unknown territory {name!r}. Choose from: {', '.join(TERRITORIES)}")
+    TERRITORY = TERRITORIES[name]
+    STORES = TERRITORY["stores"]
+    (BASE_DIR / "state").mkdir(exist_ok=True)
+    (BASE_DIR / "reports").mkdir(exist_ok=True)
+    STATE_FILE = BASE_DIR / "state" / f"{name}.json"
+    REPORT_FILE = BASE_DIR / "reports" / f"{name}.json"
+
+
 def main():
+    args = sys.argv[1:]
+    if len(args) != 2 or args[0] != "--territory":
+        sys.exit("usage: python check_stock.py --territory <name>")
+    setup_territory(args[1])
+    label = TERRITORY["label"]
     webhook = os.environ.get("DISCORD_WEBHOOK_URL", "").strip()
 
     if os.environ.get("TEST_ALERT") == "true":
         send_discord(webhook, [{
-            "title": "Test alert: stock checker is connected",
-            "description": f"Watching {len(PRODUCTS)} products at {len(STORES)} Target stores.",
+            "title": f"Test alert: {label} territory is connected",
+            "description": f"Watching {len(PRODUCTS)} products at {len(STORES)} Target stores:\n"
+                           + "\n".join(f"• {n}" for n in STORES.values()),
             "color": 0x3BA55D,
         }])
-        log("Sent test alert.")
+        log(f"Sent test alert for {label}.")
         return
 
     previous = json.loads(STATE_FILE.read_text()) if STATE_FILE.exists() else {}
     current = {}
     alerts = []
     errors = []
-    report = {"started_utc": time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime()), "stores": {}}
+    report = {"territory": label, "started_utc": time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime()), "stores": {}}
 
     session = requests.Session()
     try:
@@ -242,6 +247,7 @@ def main():
                         {"name": "Price", "value": r["price"] or "?", "inline": True},
                         {"name": "Status", "value": r["status"], "inline": True},
                     ],
+                    "footer": {"text": f"{label} territory"},
                 })
             elif was_in_stock and not r["in_stock"]:
                 alerts.append({
@@ -261,7 +267,7 @@ def main():
 
     if alerts:
         has_restock = any(a["title"].startswith("IN STOCK") for a in alerts)
-        send_discord(webhook, alerts, content="@here Pokémon restock!" if has_restock else None)
+        send_discord(webhook, alerts, content=f"@here Pokémon restock in {label}!" if has_restock else None)
         log(f"Sent {len(alerts)} alert(s).")
     else:
         log("No changes.")
