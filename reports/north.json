@@ -1,0 +1,17 @@
+{
+ "territory": "North",
+ "started_utc": "2026-10-28 16:32:46",
+ "stores": {
+  "Fridley": "ERROR: HTTP 435, no products in reply: ",
+  "Shoreview": "ERROR: HTTP 435, no products in reply: ",
+  "Vadnais Heights": "ERROR: HTTP 435, no products in reply: ",
+  "Lino Lakes": "skipped: run stopped early (Target throttling)",
+  "Northtown": "skipped: run stopped early (Target throttling)",
+  "Coon Rapids": "skipped: run stopped early (Target throttling)",
+  "Blaine": "skipped: run stopped early (Target throttling)",
+  "Andover": "skipped: run stopped early (Target throttling)"
+ },
+ "ok_count": 0,
+ "error_count": 8,
+ "stopped_early": true
+}
