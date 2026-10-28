@@ -38,6 +38,18 @@ STORES = {
     "5": "Bloomington (79th & Penn)",
     "220": "Eden Prairie",
     "1456": "Rogers",
+    "1272": "Shakopee",
+    "1211": "Northfield",
+    "2313": "Edina (York Ave)",
+    "2519": "Inver Grove Heights",
+    "2300": "Richfield",
+    "3204": "St. Paul Highland Park",
+    "862": "Chanhassen",
+    "2046": "West St Paul",
+    "1352": "Chaska",
+    "260": "St. Louis Park (Hwy 100)",
+    "662": "Cottage Grove",
+    "2189": "Knollwood (Hwy 7)",
 }
 
 ZIP = "55337"
