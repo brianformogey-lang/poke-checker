@@ -1,9 +1,253 @@
 {
- "started_utc": "2026-10-28 17:17:40",
- "watched_dpcis": "ERROR: blocked (HTTP 435)",
+ "started_utc": "2026-10-28 17:21:34",
+ "watched_dpcis": {
+  "1010892076": {
+   "name": "30th Celebration Elite Trainer Box",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$69.99"
+  },
+  "1011407490": {
+   "name": "30th Celebration Booster Bundle",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$31.99"
+  },
+  "1012422107": {
+   "name": "30th Celebration Mini Tin",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$12.99"
+  },
+  "1010892070": {
+   "name": "30th Celebration Knock Out Collection",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$11.99"
+  },
+  "1010892067": {
+   "name": "30th Celebration Poster Collection",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$19.99"
+  },
+  "1010892068": {
+   "name": "30th Celebration Sylveon ex Box",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$29.99"
+  },
+  "1010892078": {
+   "name": "30th Celebration Tech Sticker Collection",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$19.99"
+  },
+  "1010892074": {
+   "name": "30th Celebration Binder Collection",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$39.99"
+  },
+  "1012850573": {
+   "name": "30th Celebration Figure Collection (Mewtwo)",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$39.99"
+  },
+  "1012663804": {
+   "name": "30th Celebration Ditto Premium Collection",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$49.99"
+  },
+  "1012850570": {
+   "name": "30th Celebration Ultra-Premium Collection",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$249.99"
+  },
+  "1012793604": {
+   "name": "Delta Reign Elite Trainer Box",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$59.99"
+  },
+  "1013166578": {
+   "name": "Delta Reign Booster Bundle",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$31.99"
+  },
+  "1013166573": {
+   "name": "Delta Reign 3-Booster Blister",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$14.99"
+  },
+  "1011483406": {
+   "name": "Pitch Black Elite Trainer Box",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$59.99"
+  },
+  "1011483414": {
+   "name": "Pitch Black Booster Bundle",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$31.99"
+  },
+  "1011483408": {
+   "name": "Pitch Black 3-Booster Blister",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$14.99"
+  },
+  "95267143": {
+   "name": "Chaos Rising Elite Trainer Box",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$59.99"
+  },
+  "95298172": {
+   "name": "Chaos Rising Booster Bundle",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$31.99"
+  },
+  "95298174": {
+   "name": "Chaos Rising 3-Booster Blister",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$14.99"
+  },
+  "95230445": {
+   "name": "Perfect Order Elite Trainer Box",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$59.99"
+  },
+  "95230447": {
+   "name": "Perfect Order Booster Bundle",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$31.99"
+  },
+  "95230446": {
+   "name": "Perfect Order 3-Booster Blister",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$14.99"
+  },
+  "95082118": {
+   "name": "Ascended Heroes Elite Trainer Box",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$59.99"
+  },
+  "95120834": {
+   "name": "Ascended Heroes Booster Bundle",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$31.99"
+  },
+  "1012644665": {
+   "name": "Ascended Heroes Tin (Mega Meganium ex)",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$24.99"
+  },
+  "1012644667": {
+   "name": "Ascended Heroes Tin (Mega Emboar ex)",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$24.99"
+  },
+  "94860231": {
+   "name": "Phantasmal Flames Elite Trainer Box",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$59.99"
+  },
+  "1011960739": {
+   "name": "First Partner Illustration Collection Series 3",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$17.99"
+  },
+  "94411686": {
+   "name": "Charizard ex Special Collection",
+   "dpci": null,
+   "on_receipt": false,
+   "price": "$34.99"
+  }
+ },
+ "item_keys_sample": [
+  "choking_hazard",
+  "enrichment",
+  "fulfillment",
+  "is_limited_time_offer",
+  "merchandise_classification",
+  "product_classification",
+  "product_description",
+  "relationship_type_code"
+ ],
+ "receipt_dpcis_not_in_watch_list": [
+  "361-00-8095",
+  "361-00-0040",
+  "361-00-2198",
+  "361-00-6528",
+  "361-00-0053",
+  "361-00-4809"
+ ],
  "control_test": {
-  "Rogers": "ERROR: blocked (HTTP 435)",
-  "Roseville": "ERROR: blocked (HTTP 435)",
-  "Lakeville": "ERROR: blocked (HTTP 435)"
+  "Rogers": {
+   "TOY: Rayquaza figure (IN_STOCK on day 1)": "qty=0.0 instore=OUT_OF_STOCK pickup=OUT_OF_STOCK",
+   "TOY: Pikachu walkie talkies (IN_STOCK on day 1)": "qty=2.0 instore=IN_STOCK pickup=IN_STOCK",
+   "CARDS: 2023 Topps Series 1 blaster": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "CARDS: 2023 Topps Chrome blaster": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "CARDS: MTG Karlov Manor play booster 3-pack": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "CARDS: MTG TMNT play booster": "qty=0.0 instore=NOT_SOLD_IN_STORE pickup=UNAVAILABLE",
+   "CARDS: Lorcana Into the Inklands booster box": "qty=0.0 instore=NOT_SOLD_IN_STORE pickup=UNAVAILABLE",
+   "CARDS: Lorcana Wilds Unknown booster display": "qty=0.0 instore=NOT_SOLD_IN_STORE pickup=UNAVAILABLE",
+   "CARDS: Lorcana Ursula's Return booster display": "qty=0.0 instore=NOT_SOLD_IN_STORE pickup=UNAVAILABLE",
+   "POKEMON: 30th Knock Out Collection": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "POKEMON: 30th Booster Bundle": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "POKEMON: Charizard ex Special Collection": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "POKEMON: Perfect Order 3-booster blister": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "CARDS: Lorcana Winterspell booster pack": "not returned"
+  },
+  "Roseville": {
+   "TOY: Rayquaza figure (IN_STOCK on day 1)": "qty=8.0 instore=IN_STOCK pickup=IN_STOCK",
+   "TOY: Pikachu walkie talkies (IN_STOCK on day 1)": "qty=2.0 instore=IN_STOCK pickup=IN_STOCK",
+   "CARDS: 2023 Topps Series 1 blaster": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "CARDS: 2023 Topps Chrome blaster": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "CARDS: MTG Karlov Manor play booster 3-pack": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "CARDS: MTG TMNT play booster": "qty=0.0 instore=NOT_SOLD_IN_STORE pickup=UNAVAILABLE",
+   "CARDS: Lorcana Into the Inklands booster box": "qty=0.0 instore=NOT_SOLD_IN_STORE pickup=UNAVAILABLE",
+   "CARDS: Lorcana Wilds Unknown booster display": "qty=0.0 instore=NOT_SOLD_IN_STORE pickup=UNAVAILABLE",
+   "CARDS: Lorcana Ursula's Return booster display": "qty=0.0 instore=NOT_SOLD_IN_STORE pickup=UNAVAILABLE",
+   "POKEMON: 30th Knock Out Collection": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "POKEMON: 30th Booster Bundle": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "POKEMON: Charizard ex Special Collection": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "POKEMON: Perfect Order 3-booster blister": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "CARDS: Lorcana Winterspell booster pack": "not returned"
+  },
+  "Lakeville": {
+   "TOY: Rayquaza figure (IN_STOCK on day 1)": "qty=4.0 instore=IN_STOCK pickup=IN_STOCK",
+   "TOY: Pikachu walkie talkies (IN_STOCK on day 1)": "qty=2.0 instore=IN_STOCK pickup=IN_STOCK",
+   "CARDS: 2023 Topps Series 1 blaster": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "CARDS: 2023 Topps Chrome blaster": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "CARDS: MTG Karlov Manor play booster 3-pack": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "CARDS: MTG TMNT play booster": "qty=0.0 instore=NOT_SOLD_IN_STORE pickup=UNAVAILABLE",
+   "CARDS: Lorcana Into the Inklands booster box": "qty=0.0 instore=NOT_SOLD_IN_STORE pickup=UNAVAILABLE",
+   "CARDS: Lorcana Wilds Unknown booster display": "qty=0.0 instore=NOT_SOLD_IN_STORE pickup=UNAVAILABLE",
+   "CARDS: Lorcana Ursula's Return booster display": "qty=0.0 instore=NOT_SOLD_IN_STORE pickup=UNAVAILABLE",
+   "POKEMON: 30th Knock Out Collection": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "POKEMON: 30th Booster Bundle": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "POKEMON: Charizard ex Special Collection": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "POKEMON: Perfect Order 3-booster blister": "qty=0.0 instore=OUT_OF_STOCK pickup=UNAVAILABLE",
+   "CARDS: Lorcana Winterspell booster pack": "not returned"
+  }
  }
 }
