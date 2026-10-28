@@ -56,6 +56,7 @@ ZIP = "55337"
 STATE = "MN"
 SECONDS_BETWEEN_STORES = 5  # Target briefly blocks rapid-fire requests; keep this >= 5
 STATE_FILE = Path(__file__).with_name("state.json")
+REPORT_FILE = Path(__file__).with_name("last_run.json")  # what happened on the latest run
 
 IN_STOCK_STATUSES = {"IN_STOCK", "LIMITED_STOCK"}
 
@@ -105,21 +106,31 @@ def check_store(session, key, store_id):
         "card_membership": "false",
         "channel": "WEB",
     }
-    for attempt in range(2):
+    # Target sometimes throttles by returning an HTML block page OR a JSON reply with no
+    # products in it. Both count as a failed check: wait and retry, then give up for this run.
+    waits = [20, 45]
+    problem = ""
+    summaries = None
+    for attempt in range(len(waits) + 1):
         resp = session.get(FULFILLMENT_URL, params=params, headers=HEADERS, timeout=30)
         try:
             data = resp.json()
-            break
+            summaries = (data.get("data") or {}).get("product_summaries") or []
+            if summaries:
+                break
+            errs = data.get("errors") or data.get("message") or ""
+            problem = f"HTTP {resp.status_code}, no products in reply: {str(errs)[:200]}"
         except ValueError:
-            # Non-JSON response = Target's temporary block page. Wait and retry once.
-            if attempt == 0:
-                log(f"  store {store_id}: got blocked (HTTP {resp.status_code}), waiting 45s and retrying")
-                time.sleep(45)
-            else:
-                raise RuntimeError(f"blocked by Target (HTTP {resp.status_code})")
+            problem = f"HTTP {resp.status_code}, blocked (non-JSON reply)"
+        summaries = None
+        if attempt < len(waits):
+            log(f"  store {store_id}: {problem}; waiting {waits[attempt]}s and retrying")
+            time.sleep(waits[attempt])
+    if not summaries:
+        raise RuntimeError(problem)
 
     results = {}
-    for p in (data.get("data") or {}).get("product_summaries") or []:
+    for p in summaries:
         opts = (p.get("fulfillment") or {}).get("store_options") or [{}]
         s = opts[0]
         qty = s.get("location_available_to_promise_quantity") or 0
@@ -169,6 +180,7 @@ def main():
     current = {}
     alerts = []
     errors = []
+    report = {"started_utc": time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime()), "stores": {}}
 
     session = requests.Session()
     try:
@@ -184,6 +196,7 @@ def main():
             results = check_store(session, key, store_id)
         except Exception as e:
             errors.append(store_name)
+            report["stores"][store_name] = f"ERROR: {e}"
             log(f"{store_name}: ERROR {e}")
             # keep previous state for this store so we don't send false alerts
             for tcin in PRODUCTS:
@@ -221,9 +234,13 @@ def main():
                     "color": 0x99AAB5,
                     "description": f"{store_name} is back to 0.",
                 })
+        report["stores"][store_name] = "ok: " + ", ".join(summary)
         log(f"{store_name}: " + ", ".join(summary))
 
     STATE_FILE.write_text(json.dumps(current, indent=1, sort_keys=True))
+    report["ok_count"] = len(STORES) - len(errors)
+    report["error_count"] = len(errors)
+    REPORT_FILE.write_text(json.dumps(report, indent=1))
 
     if alerts:
         has_restock = any(a["title"].startswith("IN STOCK") for a in alerts)
