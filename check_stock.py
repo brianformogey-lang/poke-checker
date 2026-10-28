@@ -22,13 +22,10 @@ import requests
 # What to watch. Edit these lists to add/remove products or stores.
 # Product IDs (TCINs) are the number at the end of a Target link: .../A-1010892076
 # ---------------------------------------------------------------------------
-PRODUCTS = {
-    "1010892076": "30th Celebration Elite Trainer Box",
-    "1012422107": "30th Celebration Mini Tin",
-    "1011407490": "30th Celebration Booster Bundle",
-    "1010892070": "30th Celebration Knock Out Collection",
-    "94411686": "Charizard ex Special Collection",
-}
+# Products to watch live in products.json (Target product ID -> name). Max 30: Target's
+# lookup takes at most 30 products per request, and we use one request per store.
+PRODUCTS = json.loads((Path(__file__).parent / "products.json").read_text())
+assert len(PRODUCTS) <= 30, "Target's lookup takes at most 30 products per request"
 
 # Stores live in territories.json, grouped by territory. Each territory has its own
 # Discord channel (webhook secret) and its own state file under state/.
@@ -125,7 +122,9 @@ def check_store(session, key, store_id):
         qty = s.get("location_available_to_promise_quantity") or 0
         status = (s.get("in_store_only") or {}).get("availability_status") or "UNKNOWN"
         price = ((p.get("price") or {}).get("formatted_current_price")) or ""
+        title = ((p.get("item") or {}).get("product_description") or {}).get("title") or ""
         results[p["tcin"]] = {
+            "title": title.replace("&#233;", "é").replace("&#8212;", "—"),
             "qty": int(qty),
             "status": status,
             "price": price,
@@ -226,6 +225,12 @@ def main():
                     current[k] = previous[k]
             continue
 
+        if "products" not in report:
+            report["products"] = {
+                tcin: (f"{r['price']} | {r['status']} | {r['title'][:70]}" if (r := results.get(tcin))
+                       else "NOT RETURNED by Target (bad or retired product ID?)")
+                for tcin in PRODUCTS
+            }
         summary = []
         for tcin, name in PRODUCTS.items():
             r = results.get(tcin)
@@ -234,7 +239,8 @@ def main():
             k = f"{store_id}:{tcin}"
             was_in_stock = previous.get(k, {}).get("in_stock", False)
             current[k] = {"in_stock": r["in_stock"], "qty": r["qty"]}
-            summary.append(f"{name}={r['qty']}")
+            if r["qty"] or r["in_stock"]:
+                summary.append(f"{name}={r['qty']}")
 
             if r["in_stock"] and not was_in_stock:
                 alerts.append({
@@ -256,8 +262,8 @@ def main():
                     "color": 0x99AAB5,
                     "description": f"{store_name} is back to 0.",
                 })
-        report["stores"][store_name] = "ok: " + ", ".join(summary)
-        log(f"{store_name}: " + ", ".join(summary))
+        report["stores"][store_name] = "ok: " + (", ".join(summary) or f"all {len(results)} products at 0")
+        log(f"{store_name}: " + (", ".join(summary) or f"all {len(results)} products at 0"))
 
     STATE_FILE.write_text(json.dumps(current, indent=1, sort_keys=True))
     report["ok_count"] = len(STORES) - len(errors)
