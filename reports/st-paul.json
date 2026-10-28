@@ -1,15 +1,15 @@
 {
  "territory": "St. Paul",
- "started_utc": "2026-10-28 16:06:18",
+ "started_utc": "2026-10-28 16:29:06",
  "stores": {
-  "Inver Grove Heights": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
-  "West St Paul": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
-  "St. Paul Highland Park": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
-  "St. Paul Midway": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
-  "East St Paul": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
-  "Roseville": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0"
+  "Inver Grove Heights": "ERROR: HTTP 435, no products in reply: ",
+  "West St Paul": "ERROR: HTTP 435, no products in reply: ",
+  "St. Paul Highland Park": "ERROR: HTTP 435, no products in reply: ",
+  "St. Paul Midway": "skipped: run stopped early (Target throttling)",
+  "East St Paul": "skipped: run stopped early (Target throttling)",
+  "Roseville": "skipped: run stopped early (Target throttling)"
  },
- "ok_count": 6,
- "error_count": 0,
- "stopped_early": false
+ "ok_count": 0,
+ "error_count": 6,
+ "stopped_early": true
 }

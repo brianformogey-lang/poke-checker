@@ -1,17 +1,17 @@
 {
  "territory": "East",
- "started_utc": "2026-10-28 16:06:15",
+ "started_utc": "2026-10-28 16:29:04",
  "stores": {
-  "Cottage Grove": "ERROR: HTTP 435, no products in reply: ",
-  "Woodbury Valley Creek": "ERROR: HTTP 435, no products in reply: ",
-  "Woodbury Commerce Dr": "ERROR: HTTP 435, no products in reply: ",
-  "Oakdale": "skipped: run stopped early (Target throttling)",
-  "North St Paul": "skipped: run stopped early (Target throttling)",
-  "Stillwater": "skipped: run stopped early (Target throttling)",
-  "Hudson, WI": "skipped: run stopped early (Target throttling)",
-  "Red Wing": "skipped: run stopped early (Target throttling)"
+  "Cottage Grove": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
+  "Woodbury Valley Creek": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
+  "Woodbury Commerce Dr": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
+  "Oakdale": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
+  "North St Paul": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
+  "Stillwater": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
+  "Hudson, WI": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
+  "Red Wing": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0"
  },
- "ok_count": 0,
- "error_count": 8,
- "stopped_early": true
+ "ok_count": 8,
+ "error_count": 0,
+ "stopped_early": false
 }

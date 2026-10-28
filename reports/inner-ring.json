@@ -1,14 +1,14 @@
 {
  "territory": "Inner Ring",
- "started_utc": "2026-10-28 16:06:18",
+ "started_utc": "2026-10-28 16:29:05",
  "stores": {
-  "Bloomington (79th & Penn)": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
-  "Richfield": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
-  "Edina (York Ave)": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
-  "St. Louis Park (Hwy 100)": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
-  "Knollwood (Hwy 7)": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0"
+  "Bloomington (79th & Penn)": "ERROR: HTTP 435, no products in reply: ",
+  "Richfield": "ERROR: HTTP 435, no products in reply: ",
+  "Edina (York Ave)": "ERROR: HTTP 435, no products in reply: ",
+  "St. Louis Park (Hwy 100)": "skipped: run stopped early (Target throttling)",
+  "Knollwood (Hwy 7)": "skipped: run stopped early (Target throttling)"
  },
- "ok_count": 5,
- "error_count": 0,
- "stopped_early": false
+ "ok_count": 0,
+ "error_count": 5,
+ "stopped_early": true
 }
