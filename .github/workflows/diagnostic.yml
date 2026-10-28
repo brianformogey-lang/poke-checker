@@ -1,0 +1,32 @@
+name: Diagnostic
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stock-check
+  cancel-in-progress: false
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - run: python diagnostic.py
+      - name: Save report
+        if: always()
+        run: |
+          git config user.name "stock-checker"
+          git config user.email "stock-checker@users.noreply.github.com"
+          git add reports/diagnostic.json 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Diagnostic report"
+          for i in 1 2 3; do git push && exit 0; git pull --rebase; done
