@@ -1,0 +1,13 @@
+{
+ "territory": "Minneapolis",
+ "started_utc": "2026-10-28 16:06:17",
+ "stores": {
+  "East Lake St & Hwy 55": "ERROR: HTTP 435, no products in reply: ",
+  "Nicollet Mall": "ERROR: HTTP 435, no products in reply: ",
+  "Dinkytown": "ERROR: HTTP 435, no products in reply: ",
+  "Minneapolis NE": "skipped: run stopped early (Target throttling)"
+ },
+ "ok_count": 0,
+ "error_count": 4,
+ "stopped_early": true
+}

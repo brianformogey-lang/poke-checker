@@ -1,0 +1,17 @@
+{
+ "territory": "East",
+ "started_utc": "2026-10-28 16:06:15",
+ "stores": {
+  "Cottage Grove": "ERROR: HTTP 435, no products in reply: ",
+  "Woodbury Valley Creek": "ERROR: HTTP 435, no products in reply: ",
+  "Woodbury Commerce Dr": "ERROR: HTTP 435, no products in reply: ",
+  "Oakdale": "skipped: run stopped early (Target throttling)",
+  "North St Paul": "skipped: run stopped early (Target throttling)",
+  "Stillwater": "skipped: run stopped early (Target throttling)",
+  "Hudson, WI": "skipped: run stopped early (Target throttling)",
+  "Red Wing": "skipped: run stopped early (Target throttling)"
+ },
+ "ok_count": 0,
+ "error_count": 8,
+ "stopped_early": true
+}

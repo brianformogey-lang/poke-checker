@@ -1,0 +1,16 @@
+{
+ "territory": "Northwest",
+ "started_utc": "2026-10-28 16:06:15",
+ "stores": {
+  "Plymouth": "ERROR: HTTP 435, no products in reply: ",
+  "Crystal": "ERROR: HTTP 435, no products in reply: ",
+  "Brooklyn Park": "ERROR: HTTP 435, no products in reply: ",
+  "Medina": "skipped: run stopped early (Target throttling)",
+  "Maple Grove North": "skipped: run stopped early (Target throttling)",
+  "Champlin": "skipped: run stopped early (Target throttling)",
+  "Rogers": "skipped: run stopped early (Target throttling)"
+ },
+ "ok_count": 0,
+ "error_count": 7,
+ "stopped_early": true
+}

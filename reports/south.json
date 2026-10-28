@@ -1,0 +1,16 @@
+{
+ "territory": "South",
+ "started_utc": "2026-10-28 16:06:16",
+ "stores": {
+  "Lakeville": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
+  "Apple Valley (Cedar Ave)": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
+  "Apple Valley South (Pilot Knob)": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
+  "Burnsville": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
+  "Savage": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
+  "Eagan": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0",
+  "Northfield": "ok: 30th Celebration Elite Trainer Box=0, 30th Celebration Mini Tin=0, 30th Celebration Booster Bundle=0, 30th Celebration Knock Out Collection=0, Charizard ex Special Collection=0"
+ },
+ "ok_count": 7,
+ "error_count": 0,
+ "stopped_early": false
+}
