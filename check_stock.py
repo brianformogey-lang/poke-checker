@@ -54,9 +54,11 @@ STORES = {
 
 ZIP = "55337"
 STATE = "MN"
-SECONDS_BETWEEN_STORES = 5  # Target briefly blocks rapid-fire requests; keep this >= 5
+SECONDS_BETWEEN_STORES = 8  # Target throttles rapid-fire requests; keep this >= 8
 STATE_FILE = Path(__file__).with_name("state.json")
 REPORT_FILE = Path(__file__).with_name("last_run.json")  # what happened on the latest run
+
+MAX_CONSECUTIVE_FAILURES = 3  # this many stores in a row fail -> Target is throttling; stop the run
 
 IN_STOCK_STATUSES = {"IN_STOCK", "LIMITED_STOCK"}
 
@@ -108,7 +110,7 @@ def check_store(session, key, store_id):
     }
     # Target sometimes throttles by returning an HTML block page OR a JSON reply with no
     # products in it. Both count as a failed check: wait and retry, then give up for this run.
-    waits = [20, 45]
+    waits = [15]
     problem = ""
     summaries = None
     for attempt in range(len(waits) + 1):
@@ -189,12 +191,26 @@ def main():
         log(f"ERROR getting site key: {e}")
         sys.exit(0)  # don't fail the run; try again next schedule
 
+    consecutive_failures = 0
+    stopped_early = False
     for i, (store_id, store_name) in enumerate(STORES.items()):
+        if consecutive_failures >= MAX_CONSECUTIVE_FAILURES:
+            # Target is throttling this whole run; stop and try again next schedule.
+            stopped_early = True
+            errors.append(store_name)
+            report["stores"][store_name] = "skipped: run stopped early (Target throttling)"
+            for tcin in PRODUCTS:
+                k = f"{store_id}:{tcin}"
+                if k in previous:
+                    current[k] = previous[k]
+            continue
         if i:
             time.sleep(SECONDS_BETWEEN_STORES)
         try:
             results = check_store(session, key, store_id)
+            consecutive_failures = 0
         except Exception as e:
+            consecutive_failures += 1
             errors.append(store_name)
             report["stores"][store_name] = f"ERROR: {e}"
             log(f"{store_name}: ERROR {e}")
@@ -240,6 +256,7 @@ def main():
     STATE_FILE.write_text(json.dumps(current, indent=1, sort_keys=True))
     report["ok_count"] = len(STORES) - len(errors)
     report["error_count"] = len(errors)
+    report["stopped_early"] = stopped_early
     REPORT_FILE.write_text(json.dumps(report, indent=1))
 
     if alerts:
@@ -249,8 +266,10 @@ def main():
     else:
         log("No changes.")
 
+    if stopped_early:
+        log("Stopped early: Target is throttling this run. Will try again next schedule.")
     if errors:
-        log(f"Stores that errored this run: {', '.join(errors)}")
+        log(f"Stores that errored/skipped this run: {', '.join(errors)}")
 
 
 if __name__ == "__main__":
