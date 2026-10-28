@@ -1,0 +1,29 @@
+{
+ "started_utc": "2026-10-28 04:16:04",
+ "stores": {
+  "Burnsville": "ERROR: HTTP 435, no products in reply: ",
+  "Eagan": "ERROR: HTTP 435, no products in reply: ",
+  "Lakeville": "ERROR: HTTP 435, no products in reply: ",
+  "Apple Valley (Cedar Ave)": "skipped: run stopped early (Target throttling)",
+  "Apple Valley South (Pilot Knob)": "skipped: run stopped early (Target throttling)",
+  "Savage": "skipped: run stopped early (Target throttling)",
+  "Bloomington (79th & Penn)": "skipped: run stopped early (Target throttling)",
+  "Eden Prairie": "skipped: run stopped early (Target throttling)",
+  "Rogers": "skipped: run stopped early (Target throttling)",
+  "Shakopee": "skipped: run stopped early (Target throttling)",
+  "Northfield": "skipped: run stopped early (Target throttling)",
+  "Edina (York Ave)": "skipped: run stopped early (Target throttling)",
+  "Inver Grove Heights": "skipped: run stopped early (Target throttling)",
+  "Richfield": "skipped: run stopped early (Target throttling)",
+  "St. Paul Highland Park": "skipped: run stopped early (Target throttling)",
+  "Chanhassen": "skipped: run stopped early (Target throttling)",
+  "West St Paul": "skipped: run stopped early (Target throttling)",
+  "Chaska": "skipped: run stopped early (Target throttling)",
+  "St. Louis Park (Hwy 100)": "skipped: run stopped early (Target throttling)",
+  "Cottage Grove": "skipped: run stopped early (Target throttling)",
+  "Knollwood (Hwy 7)": "skipped: run stopped early (Target throttling)"
+ },
+ "ok_count": 0,
+ "error_count": 21,
+ "stopped_early": true
+}
