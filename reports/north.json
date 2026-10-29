@@ -1,15 +1,15 @@
 {
  "territory": "North",
- "started_utc": "2026-10-29 03:19:28",
+ "started_utc": "2026-10-29 04:09:12",
  "stores": {
-  "Fridley": "ERROR: HTTP 435, no products in reply: ",
+  "Fridley": "ok: all 30 products at 0",
   "Shoreview": "ok: all 30 products at 0",
-  "Vadnais Heights": "ERROR: HTTP 435, no products in reply: ",
-  "Lino Lakes": "ERROR: HTTP 435, no products in reply: ",
-  "Northtown": "ERROR: HTTP 435, no products in reply: ",
-  "Coon Rapids": "skipped: run stopped early (Target throttling)",
-  "Blaine": "skipped: run stopped early (Target throttling)",
-  "Andover": "skipped: run stopped early (Target throttling)"
+  "Vadnais Heights": "ok: all 30 products at 0",
+  "Lino Lakes": "ok: all 30 products at 0",
+  "Northtown": "ok: all 30 products at 0",
+  "Coon Rapids": "ok: all 30 products at 0",
+  "Blaine": "ok: all 30 products at 0",
+  "Andover": "ok: all 30 products at 0"
  },
  "products": {
   "1010892076": "$69.99 | OUT_OF_STOCK | Pok\u00e9mon Trading Card Game: 30th Celebration Elite Trainer Box",
@@ -43,7 +43,7 @@
   "1011960739": "$17.99 | OUT_OF_STOCK | Pok\u00e9mon Trading Card Game: First Partner Illustration Collection\u2014Serie",
   "94411686": "$34.99 | OUT_OF_STOCK | Pok\u00e9mon Trading Card Game: Charizard ex Special Collection"
  },
- "ok_count": 1,
- "error_count": 7,
- "stopped_early": true
+ "ok_count": 8,
+ "error_count": 0,
+ "stopped_early": false
 }
