@@ -1,15 +1,15 @@
 {
  "territory": "East",
- "started_utc": "2026-10-29 18:03:50",
+ "started_utc": "2026-10-29 18:53:25",
  "stores": {
-  "Cottage Grove": "ERROR: HTTP 435, no products in reply: ",
+  "Cottage Grove": "ok: all 30 products at 0",
   "Woodbury Valley Creek": "ok: all 30 products at 0",
   "Woodbury Commerce Dr": "ok: all 30 products at 0",
   "Oakdale": "ok: all 30 products at 0",
   "North St Paul": "ok: all 30 products at 0",
-  "Stillwater": "ERROR: HTTP 435, no products in reply: ",
+  "Stillwater": "ok: all 30 products at 0",
   "Hudson, WI": "ok: all 30 products at 0",
-  "Red Wing": "ERROR: HTTP 435, no products in reply: "
+  "Red Wing": "ok: all 30 products at 0"
  },
  "products": {
   "1010892076": "$69.99 | OUT_OF_STOCK | Pok\u00e9mon Trading Card Game: 30th Celebration Elite Trainer Box",
@@ -43,7 +43,7 @@
   "1011960739": "$17.99 | OUT_OF_STOCK | Pok\u00e9mon Trading Card Game: First Partner Illustration Collection\u2014Serie",
   "94411686": "$34.99 | OUT_OF_STOCK | Pok\u00e9mon Trading Card Game: Charizard ex Special Collection"
  },
- "ok_count": 5,
- "error_count": 3,
+ "ok_count": 8,
+ "error_count": 0,
  "stopped_early": false
 }
