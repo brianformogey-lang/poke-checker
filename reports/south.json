@@ -1,14 +1,14 @@
 {
  "territory": "South",
- "started_utc": "2026-10-31 07:22:53",
+ "started_utc": "2026-10-31 08:12:46",
  "stores": {
-  "Lakeville": "ERROR: HTTP 435, no products in reply: ",
+  "Lakeville": "ok: all 30 products at 0",
   "Apple Valley (Cedar Ave)": "ok: all 30 products at 0",
-  "Apple Valley South (Pilot Knob)": "ERROR: HTTP 435, no products in reply: ",
-  "Burnsville": "ERROR: HTTP 435, no products in reply: ",
-  "Savage": "ERROR: HTTP 435, no products in reply: ",
-  "Eagan": "skipped: run stopped early (Target throttling)",
-  "Northfield": "skipped: run stopped early (Target throttling)"
+  "Apple Valley South (Pilot Knob)": "ok: all 30 products at 0",
+  "Burnsville": "ok: all 30 products at 0",
+  "Savage": "ok: all 30 products at 0",
+  "Eagan": "ok: all 30 products at 0",
+  "Northfield": "ok: all 30 products at 0"
  },
  "products": {
   "1010892076": "$69.99 | OUT_OF_STOCK | Pok\u00e9mon Trading Card Game: 30th Celebration Elite Trainer Box",
@@ -42,7 +42,7 @@
   "1011960739": "$17.99 | OUT_OF_STOCK | Pok\u00e9mon Trading Card Game: First Partner Illustration Collection\u2014Serie",
   "94411686": "$34.99 | OUT_OF_STOCK | Pok\u00e9mon Trading Card Game: Charizard ex Special Collection"
  },
- "ok_count": 1,
- "error_count": 6,
- "stopped_early": true
+ "ok_count": 7,
+ "error_count": 0,
+ "stopped_early": false
 }
