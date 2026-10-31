@@ -1,13 +1,13 @@
 {
  "territory": "St. Paul",
- "started_utc": "2026-10-31 12:45:19",
+ "started_utc": "2026-10-31 13:32:42",
  "stores": {
-  "Inver Grove Heights": "ok: all 30 products at 0",
+  "Inver Grove Heights": "ERROR: HTTP 435, no products in reply: ",
   "West St Paul": "ok: all 30 products at 0",
-  "St. Paul Highland Park": "ok: all 30 products at 0",
-  "St. Paul Midway": "ok: all 30 products at 0",
-  "East St Paul": "ok: all 30 products at 0",
-  "Roseville": "ok: all 30 products at 0"
+  "St. Paul Highland Park": "ERROR: HTTP 435, no products in reply: ",
+  "St. Paul Midway": "ERROR: HTTP 435, no products in reply: ",
+  "East St Paul": "ERROR: HTTP 435, no products in reply: ",
+  "Roseville": "skipped: run stopped early (Target throttling)"
  },
  "products": {
   "1010892076": "$69.99 | OUT_OF_STOCK | Pok\u00e9mon Trading Card Game: 30th Celebration Elite Trainer Box",
@@ -41,7 +41,7 @@
   "1011960739": "$17.99 | OUT_OF_STOCK | Pok\u00e9mon Trading Card Game: First Partner Illustration Collection\u2014Serie",
   "94411686": "$34.99 | OUT_OF_STOCK | Pok\u00e9mon Trading Card Game: Charizard ex Special Collection"
  },
- "ok_count": 6,
- "error_count": 0,
- "stopped_early": false
+ "ok_count": 1,
+ "error_count": 5,
+ "stopped_early": true
 }
